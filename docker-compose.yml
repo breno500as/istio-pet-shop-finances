@@ -1,0 +1,21 @@
+version: "3"
+services: 
+ web:
+   container_name: pet-shop-finances
+   image: pet-shop-payment:v1
+   build:
+     context: .
+     dockerfile: ./Dockerfile
+   ports:
+     - '8082:8082'
+   environment:
+     - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dsv}
+   networks:
+     - pet-shop-finances-network
+networks:
+   pet-shop-finances-network:
+     driver: bridge 
+   
+ 
+ 
+  
