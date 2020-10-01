@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
        - name: pet-shop-finances
-         image: breno500as/pet-shop-finances:v1
+         image: breno500as/pet-shop-finances:v2
          ports:
           - name: ps-fin-port
             containerPort: 8082

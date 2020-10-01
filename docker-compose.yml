@@ -2,7 +2,7 @@ version: "3"
 services: 
  web:
    container_name: pet-shop-finances
-   image: pet-shop-finances:v1
+   image: pet-shop-finances:v2
    build:
      context: .
      dockerfile: ./Dockerfile
