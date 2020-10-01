@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: pet-shop-finances-service
+spec:
+  selector:
+   app: pet-shop-finances
+  ports:
+    - name:
+      port: 
+      targetPort:
+  type: NodePort
