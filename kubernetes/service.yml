@@ -6,8 +6,6 @@ spec:
   selector:
    app: pet-shop-finances
   ports:
-  - port: 31003 #a porta deve ser maior que 31000
-    nodePort: 31003
-    targetPort: ps-fin-port
-    protocol: TCP
-  type: NodePort
+   - name: http #nome da porta para acessar o container docker dentro do pod, é o mesmo nome configurado no objeto deployment
+     port: 80 #porta externa de acesso ao serviço
+     targetPort: 8082 #porta para acessar o container docker dentro do pod
