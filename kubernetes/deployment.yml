@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
        - name: pet-shop-finances
-         image: pet-shop-finances:v1
+         image: breno500as/pet-shop-finances:v1
          ports:
           - name: ps-fin-port
             containerPort: 8082
@@ -25,8 +25,8 @@ spec:
             timeoutSeconds: 100
             initialDelaySeconds: 100
             periodSeconds: 10         
-         readnessProbe:
-            httGet:
+         readinessProbe:
+            httpGet:
               path: /financa/actuator/health
               port: ps-fin-port
             timeoutSeconds: 100
