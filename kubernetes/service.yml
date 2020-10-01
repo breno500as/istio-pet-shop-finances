@@ -6,7 +6,8 @@ spec:
   selector:
    app: pet-shop-finances
   ports:
-    - name:
-      port: 
-      targetPort:
+  - port: 31003 #a porta deve ser maior que 31000
+    nodePort: 31003
+    targetPort: ps-fin-port
+    protocol: TCP
   type: NodePort
