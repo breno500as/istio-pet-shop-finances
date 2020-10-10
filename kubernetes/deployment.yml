@@ -32,4 +32,28 @@ spec:
             timeoutSeconds: 100
             initialDelaySeconds: 100
             periodSeconds: 10
+         resources: #requisição de 10% da cpu
+          requests:
+            cpu: 100m
+---
+
+#Escalabilidade horizontal automática
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: pet-shop-finances-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pet-shop-finances
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 5
           
+#Testando
+#while true; do wget -q -O- --header "Authorization: Bearer eyJraWQiOiJwZXQtc2hvcC1zZWN1cml0eUBpc3Rpby1wZXQtc2hvcC1zZWN1cml0eS5oZXJva3VhcHAuY29tIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJwZXQtc2hvcC1zZWN1cml0eUBpc3Rpby1wZXQtc2hvcC1zZWN1cml0eS5oZXJva3VhcHAuY29tIiwiaXNzIjoicGV0LXNob3Atc2VjdXJpdHlAaXN0aW8tcGV0LXNob3Atc2VjdXJpdHkuaGVyb2t1YXBwLmNvbSIsImV4cCI6MTYwMjMwMjg5NSwibG9naW4iOiJicmVubyIsImlhdCI6MTYwMjI5OTI5NX0.fu-EJhZ7NBrBnlfKQZtmNh3otwO-wCju5jldMhmzED5VzLnWTfLddzMk0QWdbNuoDoz5J70wPnAR3aG2jt0fQO13jjvGWMuWM5UvefNbR7Ji0AIwxdhnP7-Efko0uGGrrsEfzp4NwfIp4kithKlgfrFrVQfZ-rV_lquR3kLuVMrKuCfqwYTL4IxLR6eC-hNX76cjvRR2uX8XioyJbbaxiZ0Fab7QMk3juYdQkiUSo8xHCc5aJ8dtWPHuVzvhUckWp8vXuDltCPZQUs-HFQTB1gtcBB4fSbw8Y_9Sy1Hug2sFGhyqcu2rK64MZduMrGIEUuDq-9KpIB20yUge7UCbhQ" http://172.17.0.2:30485/crud/animais/teste-seguranca; done
+   
+   
+   
+   
