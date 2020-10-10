@@ -34,7 +34,7 @@ spec:
             periodSeconds: 10
          resources: #requisição de 10% da cpu
           requests:
-            cpu: 100m
+            cpu: 200m
 ---
 
 #Escalabilidade horizontal automática
