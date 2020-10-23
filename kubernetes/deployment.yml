@@ -20,14 +20,14 @@ spec:
             containerPort: 8082
          livenessProbe:
             httpGet:
-             path: /financa/actuator/health
+             path: /financa/actuator/health/liveness
              port: http
             timeoutSeconds: 100
             initialDelaySeconds: 100
             periodSeconds: 10         
          readinessProbe:
             httpGet:
-              path: /financa/actuator/health
+              path: /financa/actuator/health/readiness
               port: http
             timeoutSeconds: 100
             initialDelaySeconds: 100
